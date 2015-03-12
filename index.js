@@ -10,7 +10,10 @@ module.exports = {
     var config = {};
     var hasOwn = Object.prototype.hasOwnProperty;
 
-    var configFilePath = path.join(project.root, '.env');
+    var configFilePath = path.join(project.root, '.env.' + process.env.EMBER_ENV);
+    if(fs.existsSync(path.join(project.root, '.env'))) {
+      var configFilePath = path.join(project.root, '.env')
+    }
 
     if (fs.existsSync(configFilePath)){
       // Load all server side keys
