@@ -17,7 +17,7 @@ module.exports = {
 
     if (fs.existsSync(configFilePath)){
       // Load all server side keys
-      dotenv._getKeyAndValueFromLine(configFilePath);
+      dotenv._getKeysAndValuesFromEnvFilePath(configFilePath);
       dotenv._setEnvs();
       dotenv.load();
       loadedConfig = dotenv.parse(fs.readFileSync(configFilePath));
